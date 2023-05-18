@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import GlobalStyles from "./GlobalStyles";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home /HomePage";
 function App(): JSX.Element {
   return (
