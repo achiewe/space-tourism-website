@@ -1,30 +1,49 @@
 import { styled } from "styled-components";
 import BurgerSvg from "../../photoes/shared/icon-hamburger.svg";
 import CloseSvg from "../../photoes/shared/icon-close.svg";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const BurgerMenu = (): JSX.Element => {
+  const [isClicked, setIsClicked] = useState<boolean>(false);
+
+  const onSvgClick = () => {
+    setIsClicked(!isClicked);
+  };
+
+  console.log(isClicked);
   return (
     <BurgerDiv>
-      <img className="burger-svg" src={BurgerSvg} alt="svg burger" />
-      <MenuDiv>
-        <img className="close-svg" src={CloseSvg} alt="close svg" />
+      <img
+        onClick={onSvgClick}
+        className="burger-svg"
+        src={BurgerSvg}
+        alt="svg burger"
+      />
+      <MenuDiv isClicked={isClicked}>
+        <img
+          onClick={onSvgClick}
+          className="close-svg"
+          src={CloseSvg}
+          alt="close svg"
+        />
         <div className="pages-div">
-          <div className="page-names">
+          <Link to="/">
             <h2> 00</h2>
             <h1>HOME </h1>
-          </div>
-          <div className="page-names">
+          </Link>
+          <Link to="../../../App">
             <h2> 01</h2>
             <h1>DESTINATION </h1>
-          </div>
-          <div className="page-names">
+          </Link>
+          <Link to="../../App">
             <h2> 02</h2>
             <h1>CREW </h1>
-          </div>
-          <div className="page-names">
+          </Link>
+          <Link to="../../App">
             <h2> 03</h2>
             <h1>TECHNOLOGY </h1>
-          </div>
+          </Link>
         </div>
       </MenuDiv>
     </BurgerDiv>
@@ -40,11 +59,11 @@ const BurgerDiv = styled.div`
   }
 `;
 
-const MenuDiv = styled.div`
+const MenuDiv = styled.div<{ isClicked: boolean }>`
   width: 254px;
   height: 100vh;
-  position: absolute;
-  right: 0;
+  position: ${(props) => (props.isClicked ? "absolute" : "fixed")};
+  right: ${(props) => (props.isClicked ? "0" : "-300%")};
   top: 0;
   display: flex;
   flex-direction: column;
@@ -68,13 +87,14 @@ const MenuDiv = styled.div`
     align-items: center;
     gap: 32px;
 
-    .page-names {
+    a {
       width: 100%;
       display: flex;
       flex-direction: row;
       gap: 11px;
       align-items: center;
       justify-content: flex-start;
+      text-decoration: none;
 
       h2 {
         font-family: "Barlow Condensed";

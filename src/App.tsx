@@ -1,14 +1,17 @@
 import { styled } from "styled-components";
 import GlobalStyles from "./GlobalStyles";
-import BackgroundImage from "../src/photoes/home/background-home-mobile.jpg";
-import Header from "./components/HeaderComponent/Header";
-
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./components/Home /HomePage";
 function App(): JSX.Element {
   return (
-    <MainContainer>
-      <GlobalStyles />
-      <Header />
-    </MainContainer>
+    <Router>
+      <MainContainer>
+        <GlobalStyles />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </MainContainer>
+    </Router>
   );
 }
 
@@ -17,13 +20,7 @@ const MainContainer = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 24px;
-  align-items: center;
   position: relative;
-  background-image: url(${BackgroundImage});
-  background-repeat: no-repeat;
-  background-size: cover;
 `;
 
 export default App;
