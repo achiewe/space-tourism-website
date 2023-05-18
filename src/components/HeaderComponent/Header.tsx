@@ -1,10 +1,12 @@
 import { styled } from "styled-components";
 import Logo from "../../photoes/shared/logo.svg";
+import BurgerMenu from "./BurgerMenu";
 
 const Header = (): JSX.Element => {
   return (
     <HeaderMain>
       <img src={Logo} alt="home logo" />
+      <BurgerMenu />
     </HeaderMain>
   );
 };
