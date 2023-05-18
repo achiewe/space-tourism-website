@@ -20,6 +20,7 @@ const MainContainer = styled.div`
   justify-content: flex-start;
   padding: 24px;
   align-items: center;
+  position: relative;
   background-image: url(${BackgroundImage});
   background-repeat: no-repeat;
   background-size: cover;
