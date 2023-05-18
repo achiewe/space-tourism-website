@@ -1,7 +1,12 @@
 import { styled } from "styled-components";
+import Logo from "../../photoes/shared/logo.svg";
 
 const Header = (): JSX.Element => {
-  return <HeaderMain></HeaderMain>;
+  return (
+    <HeaderMain>
+      <img src={Logo} alt="home logo" />
+    </HeaderMain>
+  );
 };
 
 const HeaderMain = styled.header`
@@ -10,5 +15,10 @@ const HeaderMain = styled.header`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
 `;
 export default Header;

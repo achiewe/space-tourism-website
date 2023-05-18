@@ -17,7 +17,8 @@ const MainContainer = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 24px;
   align-items: center;
   background-image: url(${BackgroundImage});
   background-repeat: no-repeat;
