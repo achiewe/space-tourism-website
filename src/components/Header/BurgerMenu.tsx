@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 import BurgerSvg from "../../photoes/shared/icon-hamburger.svg";
 import CloseSvg from "../../photoes/shared/icon-close.svg";
 import { useState } from "react";
@@ -11,7 +11,6 @@ const BurgerMenu = (): JSX.Element => {
     setIsClicked(!isClicked);
   };
 
-  console.log(isClicked);
   return (
     <BurgerDiv>
       <img
@@ -20,7 +19,7 @@ const BurgerMenu = (): JSX.Element => {
         src={BurgerSvg}
         alt="svg burger"
       />
-      <MenuDiv isClicked={isClicked}>
+      <MenuDiv isclicked={isClicked.toString()}>
         <img
           onClick={onSvgClick}
           className="close-svg"
@@ -32,7 +31,7 @@ const BurgerMenu = (): JSX.Element => {
             <h2> 00</h2>
             <h1>HOME </h1>
           </Link>
-          <Link to="../../../App">
+          <Link to="/Destination">
             <h2> 01</h2>
             <h1>DESTINATION </h1>
           </Link>
@@ -59,11 +58,11 @@ const BurgerDiv = styled.div`
   }
 `;
 
-const MenuDiv = styled.div<{ isClicked: boolean }>`
+const MenuDiv = styled.div<{ isclicked: string }>`
   width: 254px;
   height: 100vh;
-  position: ${(props) => (props.isClicked ? "absolute" : "fixed")};
-  right: ${(props) => (props.isClicked ? "0" : "-300%")};
+  position: ${(props) => (props.isclicked == "true" ? "absolute" : "fixed")};
+  right: ${(props) => (props.isclicked == "true" ? "0" : "-300%")};
   top: 0;
   display: flex;
   flex-direction: column;
