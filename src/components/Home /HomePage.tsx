@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BackgroundMobile from "../../photoes/home/background-home-mobile.jpg";
+import BackgroundMobile from "../../../public/photoes/home/background-home-mobile.jpg";
 import Header from "../Header/Header";
 
 const Home = (): JSX.Element => {

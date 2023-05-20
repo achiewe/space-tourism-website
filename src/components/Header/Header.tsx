@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Logo from "../../photoes/shared/logo.svg";
+import Logo from "../../../public/photoes/shared/logo.svg";
 import BurgerMenu from "./BurgerMenu";
 
 const Header = (): JSX.Element => {

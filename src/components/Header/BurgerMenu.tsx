@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import BurgerSvg from "../../photoes/shared/icon-hamburger.svg";
-import CloseSvg from "../../photoes/shared/icon-close.svg";
+import BurgerSvg from "../../../public/photoes/shared/icon-hamburger.svg";
+import CloseSvg from "../../../public/photoes/shared/icon-close.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -31,7 +31,7 @@ const BurgerMenu = (): JSX.Element => {
             <h2> 00</h2>
             <h1>HOME </h1>
           </Link>
-          <Link to="/Destination">
+          <Link to="/Destination/moon">
             <h2> 01</h2>
             <h1>DESTINATION </h1>
           </Link>

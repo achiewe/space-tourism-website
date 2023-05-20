@@ -9,10 +9,9 @@ function App(): JSX.Element {
     <Router>
       <MainContainer>
         <GlobalStyles />
-
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Destination" element={<Destination />} />
+          <Route path="Destination/:planets" element={<Destination />} />
         </Routes>
       </MainContainer>
     </Router>

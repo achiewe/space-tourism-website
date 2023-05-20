@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Header from "../Header/Header";
-import DestinationMobile from "../../photoes/destination/background-destination-mobile.jpg";
+import DestinationMobile from "../../../public/photoes/destination/background-destination-mobile.jpg";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import data from "../../../data.json";
 
 const Destination = (): JSX.Element => {
@@ -12,6 +12,8 @@ const Destination = (): JSX.Element => {
   const planetInfo = data.destinations.find(
     (item) => item.name.toLowerCase() === param.planets
   );
+
+  const imageAdrress = `.${planetInfo?.images.png}`;
 
   console.log(planetInfo);
 
@@ -23,44 +25,39 @@ const Destination = (): JSX.Element => {
         <p className="pick-text"> pick your destination</p>
       </div>
       <div className="choose-planet">
-        <img />
+        <img src={imageAdrress} />
         <div className="switch-planet">
           <div className="planets">
-            <h2> MOON</h2>
+            <Link to="/Destination/moon"> MOON </Link>
             <div className="planets-downward"> </div>
           </div>
           <div className="planets">
-            <h2> MARS</h2>
+            <Link to="/Destination/mars"> MARS </Link>
             <div className="planets-downward"> </div>
           </div>
           <div className="planets">
-            <h2> EUROPA</h2>
+            <Link to="/Destination/europa"> EUROPA </Link>
             <div className="planets-downward"> </div>
           </div>
           <div className="planets">
-            <h2> TITAN</h2>
+            <Link to="/Destination/titan"> TITAN </Link>
             <div className="planets-downward"> </div>
           </div>
         </div>
       </div>
       <div className="planet-info">
-        <h1>MOON</h1>
-        <p className="info-text">
-          See our planet as you’ve never seen it before. A perfect relaxing trip
-          away to help regain perspective and come back refreshed. While you’re
-          there, take in some history by visiting the Luna 2 and Apollo 11
-          landing sites.
-        </p>
+        <h1>{planetInfo?.name}</h1>
+        <p className="info-text">{planetInfo?.description}</p>
       </div>
       <hr />
       <div className="time-distance">
         <div className="distance-km">
           <h3 className="avg-est"> AVG. DISTANCE</h3>
-          <h2 className="quantity-distance"> 384,400 KM</h2>
+          <h2 className="quantity-distance"> {planetInfo?.distance}</h2>
         </div>
         <div className="travel-time">
           <h3 className="avg-est"> EST. TRAVEL TIME</h3>
-          <h2 className="quantity-distance"> 3 DAYS</h2>
+          <h2 className="quantity-distance"> {planetInfo?.travel}</h2>
         </div>
       </div>
     </DestionationMain>
@@ -142,14 +139,15 @@ const DestionationMain = styled.div`
         justify-content: center;
         align-items: center;
 
-        h2 {
+        a {
           font-family: "Barlow Condensed";
           font-size: 14px;
           font-weight: 400;
           line-height: 17px;
           letter-spacing: 2.362499952316284px;
           text-align: left;
-          color: #ffffff;
+          text-decoration: none;
+          color: #d0d6f9;
         }
 
         .planets-downward {
@@ -176,6 +174,7 @@ const DestionationMain = styled.div`
       line-height: 64px;
       letter-spacing: 0px;
       text-align: center;
+      text-transform: uppercase;
       color: #ffffff;
     }
 
@@ -223,6 +222,7 @@ const DestionationMain = styled.div`
       letter-spacing: 0px;
       text-align: center;
       color: #ffffff;
+      text-transform: uppercase;
     }
 
     .distance-km {
