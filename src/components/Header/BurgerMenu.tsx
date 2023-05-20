@@ -55,6 +55,9 @@ const BurgerDiv = styled.div`
   .burger-svg {
     width: 24px;
     height: 21px;
+    @media (min-width: 768px) {
+      display: none;
+    }
   }
 `;
 
@@ -73,6 +76,9 @@ const MenuDiv = styled.div<{ isclicked: string }>`
   background: rgba(255, 255, 255, 0.04);
   gap: 65px;
   backdrop-filter: blur(40.7742px);
+  @media (min-width: 768px) {
+    display: none;
+  }
 
   .close-svg {
     width: 19.09px;

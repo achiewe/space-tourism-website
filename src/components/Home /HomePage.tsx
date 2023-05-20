@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import BackgroundMobile from "../../../public/photoes/home/background-home-mobile.jpg";
+import BackgroundTablet from "../../../public/photoes/home/background-home-tablet.jpg";
 import Header from "../Header/Header";
 
 const Home = (): JSX.Element => {
@@ -34,6 +35,11 @@ const HomeMain = styled.div`
   gap: 48px;
   background-repeat: no-repeat;
   background-size: cover;
+  @media (min-width: 768px) {
+    background-image: url(${BackgroundTablet});
+    gap: 130px;
+    padding: 0 0 90px 0;
+  }
 
   .space-div {
     display: flex;
@@ -41,6 +47,10 @@ const HomeMain = styled.div`
     justify-content: center;
     align-items: center;
     gap: 16px;
+
+    @media (min-width: 768px) {
+      gap: 24px;
+    }
 
     h3 {
       font-family: "Barlow Condensed";
@@ -50,6 +60,14 @@ const HomeMain = styled.div`
       letter-spacing: 2.700000047683716px;
       text-align: center;
       color: #d0d6f9;
+
+      @media (min-width: 768px) {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 3.375px;
+        text-align: center;
+      }
     }
 
     h1 {
@@ -60,6 +78,14 @@ const HomeMain = styled.div`
       letter-spacing: 0px;
       text-align: center;
       color: #ffffff;
+
+      @media (min-width: 768px) {
+        font-size: 150px;
+        font-weight: 400;
+        line-height: 150px;
+        letter-spacing: 0px;
+        text-align: left;
+      }
     }
 
     p {
@@ -70,6 +96,15 @@ const HomeMain = styled.div`
       letter-spacing: 0px;
       text-align: center;
       color: #d0d6f9;
+
+      @media (min-width: 768px) {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 28px;
+        letter-spacing: 0px;
+        text-align: center;
+        width: 444px;
+      }
     }
   }
 
@@ -90,6 +125,17 @@ const HomeMain = styled.div`
     letter-spacing: 1.25px;
     text-align: center;
     color: #0b0d17;
+
+    @media (min-width: 768px) {
+      margin-top: 156px;
+      height: 242px;
+      width: 242px;
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 37px;
+      letter-spacing: 2px;
+      text-align: left;
+    }
   }
 `;
 export default Home;

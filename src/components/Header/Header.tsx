@@ -20,6 +20,13 @@ const HeaderMain = styled.header`
   img {
     width: 40px;
     height: 40px;
+
+    @media (min-width: 768px) {
+      width: 48px;
+      height: 48px;
+      margin-left: 39px;
+      margin-top: 24px;
+    }
   }
 `;
 export default Header;
