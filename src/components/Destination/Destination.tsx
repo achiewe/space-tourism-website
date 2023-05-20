@@ -1,24 +1,24 @@
 import styled from "styled-components";
 import Header from "../Header/Header";
 import DestinationMobile from "../../../public/photoes/destination/background-destination-mobile.jpg";
-import { useEffect, useState } from "react";
+
 import { useParams, Link } from "react-router-dom";
 import data from "../../../data.json";
 
 const Destination = (): JSX.Element => {
-  const [saveInfo, setSaveInfo] = useState<any>(null);
-
   const param = useParams();
   const planetInfo = data.destinations.find(
     (item) => item.name.toLowerCase() === param.planets
   );
 
-  const imageAdrress = `.${planetInfo?.images.png}`;
+  const line = param.planets;
+
+  const imageAdrress = `.${planetInfo?.images.webp}`;
 
   console.log(planetInfo);
 
   return (
-    <DestionationMain>
+    <DestionationMain line={line}>
       <Header />
       <div className="pick-destionation">
         <h3>01</h3>
@@ -28,20 +28,23 @@ const Destination = (): JSX.Element => {
         <img src={imageAdrress} />
         <div className="switch-planet">
           <div className="planets">
-            <Link to="/Destination/moon"> MOON </Link>
-            <div className="planets-downward"> </div>
+            <Link className="moon-text" to="/Destination/moon">
+              {" "}
+              MOON{" "}
+            </Link>
+            <div className="downward moon"> </div>
           </div>
           <div className="planets">
             <Link to="/Destination/mars"> MARS </Link>
-            <div className="planets-downward"> </div>
+            <div className="downward mars"> </div>
           </div>
           <div className="planets">
             <Link to="/Destination/europa"> EUROPA </Link>
-            <div className="planets-downward"> </div>
+            <div className="downward europa"> </div>
           </div>
           <div className="planets">
             <Link to="/Destination/titan"> TITAN </Link>
-            <div className="planets-downward"> </div>
+            <div className="downward titan"> </div>
           </div>
         </div>
       </div>
@@ -64,7 +67,7 @@ const Destination = (): JSX.Element => {
   );
 };
 
-const DestionationMain = styled.div`
+const DestionationMain = styled.div<{ line: string | undefined }>`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -138,6 +141,11 @@ const DestionationMain = styled.div`
         gap: 8px;
         justify-content: center;
         align-items: center;
+        position: relative;
+
+        .moon-text {
+          color: ${(props) => (props.line === "moon" ? "#ffffff" : "#d0d6f9")};
+        }
 
         a {
           font-family: "Barlow Condensed";
@@ -148,13 +156,37 @@ const DestionationMain = styled.div`
           text-align: left;
           text-decoration: none;
           color: #d0d6f9;
+
+          :focus {
+            color: #ffffff;
+          }
         }
 
-        .planets-downward {
+        .downward {
+          position: absolute;
           height: 3px;
+          right: 0;
+          left: 0;
+          bottom: -8px;
           width: 36px;
           background-color: #ffffff;
           display: none;
+        }
+
+        .moon {
+          display: ${(props) => (props.line === "moon" ? "flex" : "none")};
+        }
+
+        .mars {
+          display: ${(props) => (props.line === "mars" ? "flex" : "none")};
+        }
+
+        .europa {
+          display: ${(props) => (props.line === "europa" ? "flex" : "none")};
+        }
+
+        .titan {
+          display: ${(props) => (props.line === "titan" ? "flex" : "none")};
         }
       }
     }

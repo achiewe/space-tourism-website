@@ -68,6 +68,7 @@ const MenuDiv = styled.div<{ isclicked: string }>`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
+  z-index: 1;
   padding: 33px 33px 0 33px;
   background: rgba(255, 255, 255, 0.04);
   gap: 65px;
