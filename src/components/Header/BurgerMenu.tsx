@@ -30,18 +30,22 @@ const BurgerMenu = (): JSX.Element => {
           <Link to="/">
             <h2> 00</h2>
             <h1>HOME </h1>
+            <div className="page home"> </div>
           </Link>
           <Link to="/Destination/moon">
             <h2> 01</h2>
             <h1>DESTINATION </h1>
+            <div className="page destination"> </div>
           </Link>
           <Link to="../../App">
             <h2> 02</h2>
             <h1>CREW </h1>
+            <div className="page crew"> </div>
           </Link>
           <Link to="../../App">
             <h2> 03</h2>
             <h1>TECHNOLOGY </h1>
+            <div className="page technology"> </div>
           </Link>
         </div>
       </MenuDiv>
@@ -77,12 +81,21 @@ const MenuDiv = styled.div<{ isclicked: string }>`
   gap: 65px;
   backdrop-filter: blur(40.7742px);
   @media (min-width: 768px) {
-    display: none;
+    width: 450px;
+    height: 96px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 40px 48px;
+    right: 0;
   }
 
   .close-svg {
     width: 19.09px;
     height: 19.09px;
+    @media (min-width: 768px) {
+      display: none;
+    }
   }
 
   .pages-div {
@@ -92,6 +105,12 @@ const MenuDiv = styled.div<{ isclicked: string }>`
     flex-direction: column;
     align-items: center;
     gap: 32px;
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 37px;
+    }
 
     a {
       width: 100%;
@@ -99,8 +118,12 @@ const MenuDiv = styled.div<{ isclicked: string }>`
       flex-direction: row;
       gap: 11px;
       align-items: center;
+      position: absolute;
       justify-content: flex-start;
       text-decoration: none;
+
+      .page {
+      }
 
       h2 {
         font-family: "Barlow Condensed";
@@ -110,6 +133,9 @@ const MenuDiv = styled.div<{ isclicked: string }>`
         letter-spacing: 2.700000047683716px;
         text-align: left;
         color: #ffffff;
+        @media (min-width: 768px) {
+          display: none;
+        }
       }
 
       h1 {
@@ -120,6 +146,13 @@ const MenuDiv = styled.div<{ isclicked: string }>`
         letter-spacing: 2.700000047683716px;
         text-align: left;
         color: #ffffff;
+        @media (min-width: 768px) {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 17px;
+          letter-spacing: 2.362499952316284px;
+          text-align: left;
+        }
       }
     }
   }
