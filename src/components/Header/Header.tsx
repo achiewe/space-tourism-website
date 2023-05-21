@@ -27,6 +27,11 @@ const HeaderMain = styled.header`
       margin-left: 39px;
       margin-top: 24px;
     }
+
+    @media (min-width: 1024px) {
+      margin-left: 55px;
+      margin-top: 64px;
+    }
   }
 `;
 export default Header;

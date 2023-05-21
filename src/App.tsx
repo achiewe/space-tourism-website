@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./components/Home /HomePage";
+import Home from "./components/HomePage";
 import Destination from "./components/Destination";
 import Crew from "./components/Crew";
 

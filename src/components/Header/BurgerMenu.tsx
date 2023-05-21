@@ -96,6 +96,10 @@ const MenuDiv = styled.div<{ isclicked: string; selectPage: string }>`
     padding: 40px 48px;
     right: 0;
   }
+  @media (min-width: 1024px) {
+    width: 830px;
+    padding: 39px 167px 39px 123px;
+  }
 
   .close-svg {
     width: 19.09px;

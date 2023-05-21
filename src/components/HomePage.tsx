@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import BackgroundMobile from "../../../public/photoes/home/background-home-mobile.jpg";
-import BackgroundTablet from "../../../public/photoes/home/background-home-tablet.jpg";
-import Header from "../Header/Header";
+import BackgroundMobile from "../../public/photoes/home/background-home-mobile.jpg";
+import BackgroundTablet from "../../public/photoes/home/background-home-tablet.jpg";
+import Header from "./Header/Header";
 
 const Home = (): JSX.Element => {
   return (
