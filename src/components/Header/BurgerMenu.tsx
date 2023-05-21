@@ -118,12 +118,28 @@ const MenuDiv = styled.div<{ isclicked: string }>`
       flex-direction: row;
       gap: 11px;
       align-items: center;
-      position: absolute;
       justify-content: flex-start;
       text-decoration: none;
+      @media (min-width: 768px) {
+        gap: 0px;
+        flex-direction: column;
+        position: relative;
+      }
 
       .page {
+        @media (min-width: 768px) {
+          position: absolute;
+          background-color: #ffffff;
+          width: 36px;
+          height: 3px;
+          bottom: -40px;
+          display: none;
+        }
       }
+
+      /* .home {
+        display: ;
+      } */
 
       h2 {
         font-family: "Barlow Condensed";

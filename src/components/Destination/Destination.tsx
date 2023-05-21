@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Header from "../Header/Header";
 import DestinationMobile from "../../../public/photoes/destination/background-destination-mobile.jpg";
-
+import DestinationTablet from "../../../public/photoes/destination/background-destination-tablet.jpg";
 import { useParams, Link } from "react-router-dom";
 import data from "../../../data.json";
 
@@ -29,8 +29,7 @@ const Destination = (): JSX.Element => {
         <div className="switch-planet">
           <div className="planets">
             <Link className="moon-text" to="/Destination/moon">
-              {" "}
-              MOON{" "}
+              MOON
             </Link>
             <div className="downward moon"> </div>
           </div>
@@ -82,6 +81,12 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
   gap: 32px;
   background-repeat: no-repeat;
   background-size: cover;
+  @media (min-width: 768px) {
+    padding: 0px;
+    gap: 64px;
+    background-image: url(${DestinationTablet});
+    padding-bottom: 62px;
+  }
 
   .pick-destionation {
     width: 100%;
@@ -90,6 +95,11 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
     gap: 18px;
     justify-content: center;
     align-items: center;
+    @media (min-width: 768px) {
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 38.5px;
+    }
 
     h3 {
       font-family: "Barlow Condensed";
@@ -100,6 +110,13 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
       text-align: left;
       color: #ffffff;
       opacity: 0.25;
+      @media (min-width: 768px) {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 3.375px;
+        text-align: left;
+      }
     }
 
     .pick-text {
@@ -111,6 +128,13 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
       text-align: left;
       color: #ffffff;
       text-transform: uppercase;
+      @media (min-width: 768px) {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 3.375px;
+        text-align: left;
+      }
     }
   }
 
@@ -121,10 +145,17 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
     justify-content: center;
     align-items: center;
     gap: 26px;
+    @media (min-width: 768px) {
+      gap: 53px;
+    }
 
     img {
       width: 170px;
       height: 170px;
+      @media (min-width: 768px) {
+        width: 300px;
+        height: 300px;
+      }
     }
 
     .switch-planet {
@@ -134,7 +165,9 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
       justify-content: center;
       align-items: center;
       gap: 26px;
-
+      @media (min-width: 768px) {
+        gap: 35px;
+      }
       .planets {
         display: flex;
         flex-direction: column;
@@ -157,6 +190,14 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
           text-decoration: none;
           color: #d0d6f9;
 
+          @media (min-width: 768px) {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 19px;
+            letter-spacing: 2.700000047683716px;
+            text-align: left;
+          }
+
           :focus {
             color: #ffffff;
           }
@@ -171,6 +212,9 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
           width: 36px;
           background-color: #ffffff;
           display: none;
+          @media (min-width: 768px) {
+            width: 41px;
+          }
         }
 
         .moon {
@@ -198,6 +242,9 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media (min-width: 768px) {
+      gap: 8px;
+    }
 
     h1 {
       font-family: "Bellefair";
@@ -208,6 +255,13 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
       text-align: center;
       text-transform: uppercase;
       color: #ffffff;
+      @media (min-width: 768px) {
+        font-size: 80px;
+        font-weight: 400;
+        line-height: 92px;
+        letter-spacing: 0px;
+        text-align: center;
+      }
     }
 
     .info-text {
@@ -218,6 +272,14 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
       letter-spacing: 0px;
       text-align: center;
       color: #d0d6f9;
+      @media (min-width: 768px) {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 28px;
+        letter-spacing: 0px;
+        text-align: center;
+        width: 573px;
+      }
     }
   }
 
@@ -226,6 +288,9 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
     width: 100%;
     background: #383b4b;
     opacity: 0.2;
+    @media (min-width: 768px) {
+      max-width: 573px;
+    }
   }
 
   .time-distance {
@@ -235,6 +300,11 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
     justify-content: center;
     align-items: center;
     gap: 32px;
+    @media (min-width: 768px) {
+      flex-direction: row;
+      gap: 11px;
+      max-width: 573px;
+    }
 
     .avg-est {
       font-family: "Barlow Condensed";
