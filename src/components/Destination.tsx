@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import Header from "../Header/Header";
-import DestinationMobile from "../../../public/photoes/destination/background-destination-mobile.jpg";
-import DestinationTablet from "../../../public/photoes/destination/background-destination-tablet.jpg";
+import Header from "./Header/Header";
+import DestinationMobile from "../../public/photoes/destination/background-destination-mobile.jpg";
+import DestinationTablet from "../../public/photoes/destination/background-destination-tablet.jpg";
 import { useParams, Link } from "react-router-dom";
-import data from "../../../data.json";
+import data from "../../data.json";
 
 const Destination = (): JSX.Element => {
   const param = useParams();
@@ -226,6 +226,7 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
         }
 
         .europa {
+          width: 50px;
           display: ${(props) => (props.line === "europa" ? "flex" : "none")};
         }
 

@@ -1,12 +1,19 @@
 import styled from "styled-components";
 import BurgerSvg from "../../../public/photoes/shared/icon-hamburger.svg";
 import CloseSvg from "../../../public/photoes/shared/icon-close.svg";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const BurgerMenu = (): JSX.Element => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
+  const [selectPage, setSelectPage] = useState<string>("home");
+  const location = useLocation();
 
+  useEffect(() => {
+    const address = location.pathname;
+    const PagePresent = address.split("/")[1];
+    setSelectPage(PagePresent);
+  }, [location]);
   const onSvgClick = () => {
     setIsClicked(!isClicked);
   };
@@ -19,7 +26,7 @@ const BurgerMenu = (): JSX.Element => {
         src={BurgerSvg}
         alt="svg burger"
       />
-      <MenuDiv isclicked={isClicked.toString()}>
+      <MenuDiv isclicked={isClicked.toString()} selectPage={selectPage}>
         <img
           onClick={onSvgClick}
           className="close-svg"
@@ -37,7 +44,7 @@ const BurgerMenu = (): JSX.Element => {
             <h1>DESTINATION </h1>
             <div className="page destination"> </div>
           </Link>
-          <Link to="../../App">
+          <Link to="/Crew">
             <h2> 02</h2>
             <h1>CREW </h1>
             <div className="page crew"> </div>
@@ -65,7 +72,7 @@ const BurgerDiv = styled.div`
   }
 `;
 
-const MenuDiv = styled.div<{ isclicked: string }>`
+const MenuDiv = styled.div<{ isclicked: string; selectPage: string }>`
   width: 254px;
   height: 100vh;
   position: ${(props) => (props.isclicked == "true" ? "absolute" : "fixed")};
@@ -137,9 +144,25 @@ const MenuDiv = styled.div<{ isclicked: string }>`
         }
       }
 
-      /* .home {
-        display: ;
-      } */
+      .home {
+        display: ${(props) => (props.selectPage === "" ? "flex" : "none")};
+      }
+
+      .destination {
+        width: 80px;
+        display: ${(props) =>
+          props.selectPage === "Destination" ? "flex" : "none"};
+      }
+
+      .crew {
+        display: ${(props) => (props.selectPage === "Crew" ? "flex" : "none")};
+      }
+
+      .technology {
+        width: 80px;
+        display: ${(props) =>
+          props.selectPage === "technoloogy" ? "flex" : "none"};
+      }
 
       h2 {
         font-family: "Barlow Condensed";
