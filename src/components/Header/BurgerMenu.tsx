@@ -98,6 +98,7 @@ const MenuDiv = styled.div<{ isclicked: string; selectPage: string }>`
   }
   @media (min-width: 1024px) {
     width: 830px;
+    margin-top: 40px;
     padding: 39px 167px 39px 123px;
   }
 
@@ -122,6 +123,9 @@ const MenuDiv = styled.div<{ isclicked: string; selectPage: string }>`
       justify-content: flex-start;
       gap: 37px;
     }
+    @media (min-width: 1024px) {
+      gap: 50px;
+    }
 
     a {
       width: 100%;
@@ -135,6 +139,10 @@ const MenuDiv = styled.div<{ isclicked: string; selectPage: string }>`
         gap: 0px;
         flex-direction: column;
         position: relative;
+      }
+      @media (min-width: 1024px) {
+        flex-direction: row;
+        gap: 11px;
       }
 
       .page {
@@ -150,22 +158,34 @@ const MenuDiv = styled.div<{ isclicked: string; selectPage: string }>`
 
       .home {
         display: ${(props) => (props.selectPage === "" ? "flex" : "none")};
+        @media (min-width: 1024px) {
+          width: 70px;
+        }
       }
 
       .destination {
         width: 80px;
         display: ${(props) =>
           props.selectPage === "Destination" ? "flex" : "none"};
+        @media (min-width: 1024px) {
+          width: 120px;
+        }
       }
 
       .crew {
         display: ${(props) => (props.selectPage === "Crew" ? "flex" : "none")};
+        @media (min-width: 1024px) {
+          width: 70px;
+        }
       }
 
       .technology {
         width: 80px;
         display: ${(props) =>
           props.selectPage === "technoloogy" ? "flex" : "none"};
+        @media (min-width: 1024px) {
+          width: 100px;
+        }
       }
 
       h2 {
@@ -178,6 +198,9 @@ const MenuDiv = styled.div<{ isclicked: string; selectPage: string }>`
         color: #ffffff;
         @media (min-width: 768px) {
           display: none;
+        }
+        @media (min-width: 1024px) {
+          display: flex;
         }
       }
 
@@ -194,6 +217,13 @@ const MenuDiv = styled.div<{ isclicked: string; selectPage: string }>`
           font-weight: 400;
           line-height: 17px;
           letter-spacing: 2.362499952316284px;
+          text-align: left;
+        }
+        @media (min-width: 1024px) {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 19px;
+          letter-spacing: 2.700000047683716px;
           text-align: left;
         }
       }
