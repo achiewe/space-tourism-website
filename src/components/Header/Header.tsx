@@ -17,6 +17,7 @@ const HeaderMain = styled.header`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
   img {
     width: 40px;
     height: 40px;
@@ -31,6 +32,9 @@ const HeaderMain = styled.header`
     @media (min-width: 1024px) {
       margin-left: 55px;
       margin-top: 64px;
+      display: flex;
+      flex-direction: row;
+      gap: 64px;
     }
   }
 `;
