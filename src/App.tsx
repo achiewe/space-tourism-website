@@ -15,7 +15,7 @@ function App(): JSX.Element {
           <Route path="Destination/:planets" element={<Destination />} />
           <Route path="/Crew" element={<Crew />} />
         </Routes>
-        <hr />
+        <hr className="hr-app" />
       </MainContainer>
     </Router>
   );
@@ -27,7 +27,7 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  hr {
+  .hr-app {
     @media (min-width: 1024px) {
       position: absolute;
       top: 300px;

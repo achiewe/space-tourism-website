@@ -50,6 +50,7 @@ const HomeMain = styled.div`
   @media (min-width: 1024px) {
     background-image: url(${BackgroundDesktop});
     gap: 275px;
+    padding-bottom: 131px;
   }
   .space-main {
     display: flex;
