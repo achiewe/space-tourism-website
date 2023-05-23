@@ -31,25 +31,27 @@ const Destination = (): JSX.Element => {
           <div className="switch-planet">
             <div className="planets">
               <Link className="moon-text" to="/Destination/moon">
-                MOON
+                MOON <div className="hover-downward"> </div>
               </Link>
               <div className="downward moon"> </div>
-              <div className="hover-downward"> </div>
             </div>
             <div className="planets">
-              <Link to="/Destination/mars"> MARS </Link>
+              <Link to="/Destination/mars">
+                MARS <div className="hover-downward"> </div>
+              </Link>
               <div className="downward mars"> </div>
-              <div className="hover-downward"> </div>
             </div>
             <div className="planets">
-              <Link to="/Destination/europa"> EUROPA </Link>
+              <Link to="/Destination/europa">
+                EUROPA <div className="hover-downward"> </div>
+              </Link>
               <div className="downward europa"> </div>
-              <div className="hover-downward"> </div>
             </div>
             <div className="planets">
-              <Link to="/Destination/titan"> TITAN </Link>
+              <Link to="/Destination/titan">
+                TITAN <div className="hover-downward"> </div>
+              </Link>
               <div className="downward titan"> </div>
-              <div className="hover-downward"> </div>
             </div>
           </div>
 
@@ -241,6 +243,17 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
               props.line === "moon" ? "#ffffff" : "#d0d6f9"};
           }
 
+          .hover-downward {
+            display: none;
+            position: absolute;
+            @media (min-width: 1024px) {
+              width: 41px;
+              bottom: -8px;
+              background-color: red;
+              height: 3px;
+            }
+          }
+
           a {
             font-family: "Barlow Condensed";
             font-size: 14px;
@@ -261,6 +274,10 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
 
             :focus {
               color: #ffffff;
+            }
+
+            a:hover .hover-downward {
+              display: block;
             }
           }
 
@@ -293,15 +310,6 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
 
           .titan {
             display: ${(props) => (props.line === "titan" ? "flex" : "none")};
-          }
-
-          .hover-downward {
-            display: none;
-            position: absolute;
-            @media (min-width: 1024px) {
-              width: 200px;
-              bottom: -40px;
-            }
           }
         }
       }
@@ -427,6 +435,10 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
         justify-content: center;
         align-items: center;
         gap: 12px;
+        @media (min-width: 768px) {
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
       }
 
       .travel-time {
@@ -436,6 +448,11 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
         justify-content: center;
         align-items: center;
         gap: 12px;
+
+        @media (min-width: 768px) {
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
       }
     }
   }
