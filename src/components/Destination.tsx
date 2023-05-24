@@ -14,7 +14,7 @@ const Destination = (): JSX.Element => {
 
   const line = param.planets;
 
-  const imageAdrress = `.${planetInfo?.images.webp}`;
+  const imageAddress = `.${planetInfo?.images.webp}`;
 
   console.log(planetInfo);
 
@@ -26,7 +26,7 @@ const Destination = (): JSX.Element => {
         <p className="pick-text"> pick your destination</p>
       </div>
       <div className="main-div">
-        <img src={imageAdrress} />
+        <img src={imageAddress} />
         <div className="choose-planet">
           <div className="switch-planet">
             <div className="planets">

@@ -13,7 +13,7 @@ function App(): JSX.Element {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="Destination/:planets" element={<Destination />} />
-          <Route path="/Crew" element={<Crew />} />
+          <Route path="Crew/:person" element={<Crew />} />
         </Routes>
         <hr className="hr-app" />
       </MainContainer>

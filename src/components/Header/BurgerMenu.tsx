@@ -44,7 +44,7 @@ const BurgerMenu = (): JSX.Element => {
             <h1>DESTINATION </h1>
             <div className="page destination"> </div>
           </Link>
-          <Link to="/Crew">
+          <Link to="/Crew/douglas">
             <h2> 02</h2>
             <h1>CREW </h1>
             <div className="page crew"> </div>
