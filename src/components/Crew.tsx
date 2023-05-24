@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Header from "./Header/Header";
 import BgMobile from "../../public/photoes/crew/background-crew-mobile.jpg";
 import BgTablet from "../../public/photoes/crew/background-crew-tablet.jpg";
+import BgDesktop from "../../public/photoes/crew/background-crew-desktop.jpg";
 import { Link, useParams } from "react-router-dom";
 import data from "../../data.json";
 
@@ -10,10 +11,9 @@ const Crew = (): JSX.Element => {
   const crewInfo = data.crew.find(
     (item) => item.name.split(" ")[0].toLowerCase() === param.person
   );
-  console.log(crewInfo);
 
   const imageAddress = `.${crewInfo?.images.webp}`;
-  console.log(crewInfo);
+
   return (
     <CrewMain>
       <Header />
@@ -27,7 +27,7 @@ const Crew = (): JSX.Element => {
           <hr className="hr-image" />
         </div>
         <div className="main-info">
-          <NavDiv className="switch-commander">
+          <NavDiv>
             <Link to="/Crew/douglas" className="douglas"></Link>
             <Link to="/Crew/mark" className="mark"></Link>
             <Link to="/Crew/victor" className="victor"></Link>
@@ -55,6 +55,7 @@ const CrewMain = styled.div`
   display: flex;
   flex-direction: column;
   background-image: url(${BgMobile});
+
   background-repeat: no-repeat;
   background-size: cover;
   padding: 24px 24px 0 24px;
@@ -63,6 +64,12 @@ const CrewMain = styled.div`
     padding: 0px;
     background-image: url(${BgTablet});
     padding: 0;
+  }
+
+  @media (min-width: 1024px) {
+    background-image: url(${BgDesktop});
+    justify-content: center;
+    align-items: center;
   }
 
   .meet-crew {
@@ -80,6 +87,11 @@ const CrewMain = styled.div`
       justify-content: flex-start;
       padding-left: 38.5px;
     }
+    @media (min-width: 1024px) {
+      margin-top: 100px;
+      margin-bottom: 154px;
+      padding-left: 167px;
+    }
 
     h3 {
       font-family: "Barlow Condensed";
@@ -96,6 +108,14 @@ const CrewMain = styled.div`
         font-weight: 700;
         line-height: 24px;
         letter-spacing: 3.375px;
+        text-align: left;
+      }
+
+      @media (min-width: 1024px) {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 34px;
+        letter-spacing: 4.724999904632568px;
         text-align: left;
       }
     }
@@ -117,6 +137,14 @@ const CrewMain = styled.div`
         letter-spacing: 3.375px;
         text-align: left;
       }
+
+      @media (min-width: 1024px) {
+        font-size: 28px;
+        font-weight: 400;
+        line-height: 34px;
+        letter-spacing: 4.724999904632568px;
+        text-align: left;
+      }
     }
   }
 
@@ -132,6 +160,14 @@ const CrewMain = styled.div`
       gap: 40px;
     }
 
+    @media (min-width: 1024px) {
+      flex-direction: row-reverse;
+      gap: 81px;
+      max-width: 1500px;
+      justify-content: center;
+      align-items: center;
+    }
+
     .image-div {
       width: 100%;
       display: flex;
@@ -140,12 +176,18 @@ const CrewMain = styled.div`
       align-items: center;
 
       img {
-        width: 177.12px;
+        width: 100%;
+        max-width: 177.12px;
         height: 222px;
 
         @media (min-width: 768px) {
-          width: 456.37px;
+          max-width: 456.37px;
           height: 572px;
+        }
+
+        @media (min-width: 1024px) {
+          max-width: 568.07px;
+          height: 712px;
         }
       }
       .hr-image {
@@ -172,6 +214,11 @@ const CrewMain = styled.div`
         gap: 40px;
       }
 
+      @media (min-width: 1024px) {
+        gap: 120px;
+        justify-content: flex-start;
+      }
+
       .commander-div {
         width: 100%;
         display: flex;
@@ -180,6 +227,11 @@ const CrewMain = styled.div`
         align-items: center;
         gap: 16px;
 
+        @media (min-width: 1024px) {
+          gap: 27px;
+          align-items: flex-start;
+        }
+
         .commander-name {
           width: 100%;
           display: flex;
@@ -187,6 +239,10 @@ const CrewMain = styled.div`
           align-items: center;
           flex-direction: column;
           gap: 8px;
+          @media (min-width: 1024px) {
+            gap: 15px;
+            align-items: flex-start;
+          }
 
           h2 {
             font-family: "Bellefair";
@@ -207,6 +263,14 @@ const CrewMain = styled.div`
               letter-spacing: 0px;
               text-align: center;
             }
+
+            @media (min-width: 1024px) {
+              font-size: 32px;
+              font-weight: 400;
+              line-height: 37px;
+              letter-spacing: 0px;
+              text-align: left;
+            }
           }
 
           h1 {
@@ -225,6 +289,14 @@ const CrewMain = styled.div`
               line-height: 46px;
               letter-spacing: 0px;
               text-align: center;
+            }
+
+            @media (min-width: 1024px) {
+              font-size: 56px;
+              font-weight: 400;
+              line-height: 64px;
+              letter-spacing: 0px;
+              text-align: left;
             }
           }
         }
@@ -245,6 +317,15 @@ const CrewMain = styled.div`
             text-align: center;
             width: 458px;
           }
+
+          @media (min-width: 1024px) {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 32px;
+            letter-spacing: 0px;
+            text-align: left;
+            width: 444px;
+          }
         }
       }
     }
@@ -257,12 +338,19 @@ const NavDiv = styled.nav`
   gap: 16px;
   justify-content: center;
   align-items: center;
+  @media (min-width: 1024px) {
+    gap: 24px;
+  }
 
   a {
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background-color: #ffffff;
+    @media (min-width: 1024px) {
+      width: 15px;
+      height: 15px;
+    }
   }
 `;
 export default Crew;

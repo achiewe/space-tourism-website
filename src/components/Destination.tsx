@@ -16,8 +16,6 @@ const Destination = (): JSX.Element => {
 
   const imageAddress = `.${planetInfo?.images.webp}`;
 
-  console.log(planetInfo);
-
   return (
     <DestionationMain line={line}>
       <Header />
