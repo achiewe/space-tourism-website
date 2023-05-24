@@ -3,16 +3,24 @@ import Header from "./Header/Header";
 import BgMobile from "../../public/photoes/crew/background-crew-mobile.jpg";
 import BgTablet from "../../public/photoes/crew/background-crew-tablet.jpg";
 import BgDesktop from "../../public/photoes/crew/background-crew-desktop.jpg";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import data from "../../data.json";
+import { useEffect, useState } from "react";
 
 const Crew = (): JSX.Element => {
   const param = useParams();
   const crewInfo = data.crew.find(
     (item) => item.name.split(" ")[0].toLowerCase() === param.person
   );
-
   const imageAddress = `.${crewInfo?.images.webp}`;
+
+  const [currentPage, setCurrentPage] = useState<string>("douglas");
+  const location = useLocation();
+  useEffect(() => {
+    const address = location.pathname;
+    const PagePresent = address.split("/")[2];
+    setCurrentPage(PagePresent);
+  }, [location]);
 
   return (
     <CrewMain>
@@ -27,7 +35,7 @@ const Crew = (): JSX.Element => {
           <hr className="hr-image" />
         </div>
         <div className="main-info">
-          <NavDiv>
+          <NavDiv currentPage={currentPage}>
             <Link to="/Crew/douglas" className="douglas"></Link>
             <Link to="/Crew/mark" className="mark"></Link>
             <Link to="/Crew/victor" className="victor"></Link>
@@ -212,6 +220,7 @@ const CrewMain = styled.div`
       @media (min-width: 768px) {
         flex-direction: column-reverse;
         gap: 40px;
+        align-items: flex-start;
       }
 
       @media (min-width: 1024px) {
@@ -332,7 +341,7 @@ const CrewMain = styled.div`
   }
 `;
 
-const NavDiv = styled.nav`
+const NavDiv = styled.nav<{ currentPage: string }>`
   display: flex;
   flex-direction: row;
   gap: 16px;
@@ -351,6 +360,26 @@ const NavDiv = styled.nav`
       width: 15px;
       height: 15px;
     }
+  }
+
+  .douglas {
+    opacity: ${(props) => (props.currentPage === "douglas" ? "" : "0.17")};
+  }
+
+  .mark {
+    opacity: ${(props) => (props.currentPage === "mark" ? "" : "0.17")};
+  }
+
+  .victor {
+    opacity: ${(props) => (props.currentPage === "victor" ? "" : "0.17")};
+  }
+
+  .annousheh {
+    opacity: ${(props) => (props.currentPage === "anousheh" ? "" : "0.17")};
+  }
+
+  a:hover {
+    opacity: 0.5;
   }
 `;
 export default Crew;
