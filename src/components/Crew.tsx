@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Header from "./Header/Header";
 import BgMobile from "../../public/photoes/crew/background-crew-mobile.jpg";
+import BgTablet from "../../public/photoes/crew/background-crew-tablet.jpg";
 import { Link, useParams } from "react-router-dom";
 import data from "../../data.json";
 
@@ -24,20 +25,20 @@ const Crew = (): JSX.Element => {
         <div className="image-div">
           <img src={imageAddress} alt="douglas image" />
           <hr className="hr-image" />
-          <div className="main-info">
-            <NavDiv className="switch-commander">
-              <Link to="/Crew/douglas" className="douglas"></Link>
-              <Link to="/Crew/mark" className="mark"></Link>
-              <Link to="/Crew/victor" className="victor"></Link>
-              <Link to="/Crew/anousheh" className="annousheh"></Link>
-            </NavDiv>
-            <div className="commander-div">
-              <div className="commander-name">
-                <h2>Commander </h2>
-                <h1> {crewInfo?.name}</h1>
-              </div>
-              <p>{crewInfo?.bio}</p>
+        </div>
+        <div className="main-info">
+          <NavDiv className="switch-commander">
+            <Link to="/Crew/douglas" className="douglas"></Link>
+            <Link to="/Crew/mark" className="mark"></Link>
+            <Link to="/Crew/victor" className="victor"></Link>
+            <Link to="/Crew/anousheh" className="annousheh"></Link>
+          </NavDiv>
+          <div className="commander-div">
+            <div className="commander-name">
+              <h2>{crewInfo?.role} </h2>
+              <h1> {crewInfo?.name}</h1>
             </div>
+            <p>{crewInfo?.bio}</p>
           </div>
         </div>
       </div>
@@ -58,6 +59,11 @@ const CrewMain = styled.div`
   background-size: cover;
   padding: 24px 24px 0 24px;
   justify-content: flex-start;
+  @media (min-width: 768px) {
+    padding: 0px;
+    background-image: url(${BgTablet});
+    padding: 0;
+  }
 
   .meet-crew {
     width: 100%;
@@ -68,6 +74,12 @@ const CrewMain = styled.div`
     gap: 16px;
     justify-content: center;
     align-items: center;
+    @media (min-width: 768px) {
+      margin-top: 64px;
+      margin-bottom: 60px;
+      justify-content: flex-start;
+      padding-left: 38.5px;
+    }
 
     h3 {
       font-family: "Barlow Condensed";
@@ -78,6 +90,14 @@ const CrewMain = styled.div`
       text-align: left;
       color: #ffffff;
       opacity: 0.25;
+
+      @media (min-width: 768px) {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 3.375px;
+        text-align: left;
+      }
     }
 
     .meet-text {
@@ -89,6 +109,14 @@ const CrewMain = styled.div`
       text-align: left;
       color: #ffffff;
       text-transform: uppercase;
+
+      @media (min-width: 768px) {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 3.375px;
+        text-align: left;
+      }
     }
   }
 
@@ -99,6 +127,10 @@ const CrewMain = styled.div`
     gap: 33px;
     justify-content: center;
     align-items: center;
+    @media (min-width: 768px) {
+      flex-direction: column-reverse;
+      gap: 40px;
+    }
 
     .image-div {
       width: 100%;
@@ -106,15 +138,25 @@ const CrewMain = styled.div`
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
       img {
         width: 177.12px;
         height: 222px;
+
+        @media (min-width: 768px) {
+          width: 456.37px;
+          height: 572px;
+        }
       }
       .hr-image {
         width: 100%;
         height: 1px;
         background: #383b4b;
         opacity: 0.2;
+
+        @media (min-width: 768px) {
+          display: none;
+        }
       }
     }
 
@@ -125,6 +167,10 @@ const CrewMain = styled.div`
       justify-content: center;
       align-items: center;
       gap: 32px;
+      @media (min-width: 768px) {
+        flex-direction: column-reverse;
+        gap: 40px;
+      }
 
       .commander-div {
         width: 100%;
@@ -153,6 +199,14 @@ const CrewMain = styled.div`
             color: #ffffff;
             mix-blend-mode: normal;
             opacity: 0.5;
+
+            @media (min-width: 768px) {
+              font-size: 24px;
+              font-weight: 400;
+              line-height: 28px;
+              letter-spacing: 0px;
+              text-align: center;
+            }
           }
 
           h1 {
@@ -164,6 +218,14 @@ const CrewMain = styled.div`
             text-align: center;
             color: #ffffff;
             text-transform: uppercase;
+
+            @media (min-width: 768px) {
+              font-size: 40px;
+              font-weight: 400;
+              line-height: 46px;
+              letter-spacing: 0px;
+              text-align: center;
+            }
           }
         }
 
@@ -175,6 +237,14 @@ const CrewMain = styled.div`
           letter-spacing: 0px;
           text-align: center;
           color: #d0d6f9;
+          @media (min-width: 768px) {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 28px;
+            letter-spacing: 0px;
+            text-align: center;
+            width: 458px;
+          }
         }
       }
     }
@@ -187,7 +257,6 @@ const NavDiv = styled.nav`
   gap: 16px;
   justify-content: center;
   align-items: center;
-  margin-top: 33px;
 
   a {
     width: 10px;
