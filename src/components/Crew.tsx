@@ -7,11 +7,12 @@ import data from "../../data.json";
 const Crew = (): JSX.Element => {
   const param = useParams();
   const crewInfo = data.crew.find(
-    (item) => item.name.toLowerCase() === param.person
+    (item) => item.name.split(" ")[0].toLowerCase() === param.person
   );
+  console.log(crewInfo);
 
-  const imageAddress = `${crewInfo?.images.webp}`;
-  console.log(crewInfo?.name);
+  const imageAddress = `.${crewInfo?.images.webp}`;
+  console.log(crewInfo);
   return (
     <CrewMain>
       <Header />
@@ -30,6 +31,13 @@ const Crew = (): JSX.Element => {
               <Link to="/Crew/victor" className="victor"></Link>
               <Link to="/Crew/anousheh" className="annousheh"></Link>
             </NavDiv>
+            <div className="commander-div">
+              <div className="commander-name">
+                <h2>Commander </h2>
+                <h1> {crewInfo?.name}</h1>
+              </div>
+              <p>{crewInfo?.bio}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -117,6 +125,58 @@ const CrewMain = styled.div`
       justify-content: center;
       align-items: center;
       gap: 32px;
+
+      .commander-div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+
+        .commander-name {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          gap: 8px;
+
+          h2 {
+            font-family: "Bellefair";
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 18px;
+            letter-spacing: 0px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #ffffff;
+            mix-blend-mode: normal;
+            opacity: 0.5;
+          }
+
+          h1 {
+            font-family: "Bellefair";
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 28px;
+            letter-spacing: 0px;
+            text-align: center;
+            color: #ffffff;
+            text-transform: uppercase;
+          }
+        }
+
+        p {
+          font-family: "Barlow";
+          font-size: 15px;
+          font-weight: 400;
+          line-height: 25px;
+          letter-spacing: 0px;
+          text-align: center;
+          color: #d0d6f9;
+        }
+      }
     }
   }
 `;
@@ -127,6 +187,7 @@ const NavDiv = styled.nav`
   gap: 16px;
   justify-content: center;
   align-items: center;
+  margin-top: 33px;
 
   a {
     width: 10px;

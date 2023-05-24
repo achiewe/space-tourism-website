@@ -34,25 +34,29 @@ const BurgerMenu = (): JSX.Element => {
           alt="close svg"
         />
         <div className="pages-div">
-          <Link to="/">
+          <Link className="home" to="/">
             <h2> 00</h2>
             <h1>HOME </h1>
             <div className="page home"> </div>
+            <div className="hover"></div>
           </Link>
           <Link to="/Destination/moon">
             <h2> 01</h2>
             <h1>DESTINATION </h1>
             <div className="page destination"> </div>
+            <div className="hover"></div>
           </Link>
           <Link to="/Crew/douglas">
             <h2> 02</h2>
             <h1>CREW </h1>
             <div className="page crew"> </div>
+            <div className="hover"></div>
           </Link>
           <Link to="../../App">
             <h2> 03</h2>
             <h1>TECHNOLOGY </h1>
             <div className="page technology"> </div>
+            <div className="hover"></div>
           </Link>
         </div>
       </MenuDiv>
@@ -133,8 +137,10 @@ const MenuDiv = styled.div<{ isclicked: string; selectPage: string }>`
       flex-direction: row;
       gap: 11px;
       align-items: center;
+      position: relative;
       justify-content: flex-start;
       text-decoration: none;
+
       @media (min-width: 768px) {
         gap: 0px;
         flex-direction: column;
@@ -143,6 +149,14 @@ const MenuDiv = styled.div<{ isclicked: string; selectPage: string }>`
       @media (min-width: 1024px) {
         flex-direction: row;
         gap: 11px;
+      }
+
+      .hover {
+        height: 3px;
+        background-color: #ffffff;
+        opacity: 0.5;
+        display: none;
+        position: absolute;
       }
 
       .page {
@@ -159,7 +173,7 @@ const MenuDiv = styled.div<{ isclicked: string; selectPage: string }>`
       .home {
         display: ${(props) => (props.selectPage === "" ? "flex" : "none")};
         @media (min-width: 1024px) {
-          width: 70px;
+          width: 100%;
         }
       }
 
@@ -168,14 +182,14 @@ const MenuDiv = styled.div<{ isclicked: string; selectPage: string }>`
         display: ${(props) =>
           props.selectPage === "Destination" ? "flex" : "none"};
         @media (min-width: 1024px) {
-          width: 120px;
+          width: 100%;
         }
       }
 
       .crew {
         display: ${(props) => (props.selectPage === "Crew" ? "flex" : "none")};
         @media (min-width: 1024px) {
-          width: 70px;
+          width: 100%;
         }
       }
 
@@ -184,7 +198,7 @@ const MenuDiv = styled.div<{ isclicked: string; selectPage: string }>`
         display: ${(props) =>
           props.selectPage === "technoloogy" ? "flex" : "none"};
         @media (min-width: 1024px) {
-          width: 100px;
+          width: 100%;
         }
       }
 
@@ -227,6 +241,12 @@ const MenuDiv = styled.div<{ isclicked: string; selectPage: string }>`
           text-align: left;
         }
       }
+    }
+
+    a:hover .hover {
+      width: 100%;
+      display: block;
+      bottom: -40px;
     }
   }
 `;

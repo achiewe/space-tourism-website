@@ -243,17 +243,6 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
               props.line === "moon" ? "#ffffff" : "#d0d6f9"};
           }
 
-          .hover-downward {
-            display: none;
-            position: absolute;
-            @media (min-width: 1024px) {
-              width: 41px;
-              bottom: -8px;
-              background-color: red;
-              height: 3px;
-            }
-          }
-
           a {
             font-family: "Barlow Condensed";
             font-size: 14px;
@@ -272,13 +261,25 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
               text-align: left;
             }
 
+            .hover-downward {
+              display: none;
+              position: absolute;
+              @media (min-width: 1024px) {
+                width: 100%;
+                bottom: -8px;
+                background-color: #ffffff;
+                opacity: 0.5;
+                height: 3px;
+              }
+            }
+
             :focus {
               color: #ffffff;
             }
+          }
 
-            a:hover .hover-downward {
-              display: block;
-            }
+          a:hover .hover-downward {
+            display: block;
           }
 
           .downward {
@@ -291,7 +292,7 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
             background-color: #ffffff;
             display: none;
             @media (min-width: 768px) {
-              width: 41px;
+              width: 100%;
             }
           }
 
@@ -304,7 +305,7 @@ const DestionationMain = styled.div<{ line: string | undefined }>`
           }
 
           .europa {
-            width: 50px;
+            width: 100%;
             display: ${(props) => (props.line === "europa" ? "flex" : "none")};
           }
 
