@@ -3,8 +3,9 @@ import BgMobile from "../../public/photoes/technology/background-technology-mobi
 import BgTablet from "../../public/photoes/technology/background-technology-tablet.jpg";
 import BgDesktop from "../../public/photoes/technology/background-technology-desktop.jpg";
 import Header from "./Header/Header";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import data from "../../data.json";
+import { useEffect, useState } from "react";
 
 interface technoType {
   name?: string;
@@ -32,6 +33,13 @@ const Technology = (): JSX.Element => {
   }
   const imageLandscape = `.${TechnologyInfo?.images?.landscape}`;
   const imagePortrait = `.${TechnologyInfo?.images?.portrait}`;
+  const [currentPage, setCurrentPage] = useState<string>("vehicle");
+  const location = useLocation();
+  useEffect(() => {
+    const address = location.pathname;
+    const PagePresent = address.split("/")[2];
+    setCurrentPage(PagePresent);
+  }, [location]);
   return (
     <TechnologyMain>
       <div className="header-div">
@@ -49,7 +57,7 @@ const Technology = (): JSX.Element => {
         />
         <img className="portrait" src={imagePortrait} alt="spacecraft image" />
         <div className="bottom-div">
-          <NavDiv>
+          <NavDiv currentPage={currentPage}>
             <Link to="/Technology/vehicle" className="vehicle">
               1
             </Link>
@@ -336,7 +344,7 @@ const TechnologyMain = styled.div`
   }
 `;
 
-const NavDiv = styled.nav`
+const NavDiv = styled.nav<{ currentPage: string }>`
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -385,6 +393,28 @@ const NavDiv = styled.nav`
       letter-spacing: 2px;
       text-align: center;
     }
+  }
+
+  a:hover {
+    border: 1px solid rgba(255, 255, 255, 1);
+  }
+
+  .vehicle {
+    background-color: ${(props) =>
+      props.currentPage === "vehicle" ? "#FFFFFF" : ""};
+    color: ${(props) => (props.currentPage === "vehicle" ? "#0B0D17" : "")};
+  }
+
+  .spaceport {
+    background-color: ${(props) =>
+      props.currentPage === "spaceport" ? "#FFFFFF" : ""};
+    color: ${(props) => (props.currentPage === "spaceport" ? "#0B0D17" : "")};
+  }
+
+  .capsule {
+    background-color: ${(props) =>
+      props.currentPage === "capsule" ? "#FFFFFF" : ""};
+    color: ${(props) => (props.currentPage === "capsule" ? "#0B0D17" : "")};
   }
 `;
 
