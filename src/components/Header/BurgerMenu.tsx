@@ -52,7 +52,7 @@ const BurgerMenu = (): JSX.Element => {
             <div className="page crew"> </div>
             <div className="hover"></div>
           </Link>
-          <Link to="/Technology">
+          <Link to="/Technology/vehicle">
             <h2> 03</h2>
             <h1>TECHNOLOGY </h1>
             <div className="page technology"> </div>
